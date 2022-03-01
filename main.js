@@ -1,8 +1,7 @@
 let computerScore = 0;
 let playerScore = 0;
 
-/* const playerInput = document.getElementById("playerInput");
-const playerInputPush = document.getElementById("playerInputPush") */
+let scoreWrite = document.getElementById("score");
 
 function computerPlay(options) {
     options = ["rock", "paper", "scissors"]
@@ -23,13 +22,13 @@ function playRound(computerSelection, playerSelection) {
     computerSelection = computerPlay().toLowerCase();
     playerSelection = prompt("What do you choose?").toLowerCase();
     if (computerSelection == playerSelection) {
-        alert("It's a tie!");
+        scoreWrite.innerHTML = "<p>" + "tie" + "<p>";
     } else if (
         (computerSelection == "rock" && playerSelection == "scissors") ||
         (computerSelection == "paper" && playerSelection == "rock") ||
         (computerSelection == "scissors" && playerSelection == "paper")
     ) {
-        alert("You lose!");
+        scoreWrite.innerHTML = "<p>" + "Computer wins" + "<p>";
         incrCompScore();
         console.log("CMP" + computerScore);
     } else if (
@@ -37,7 +36,7 @@ function playRound(computerSelection, playerSelection) {
         (computerSelection == "rock" && playerSelection == "paper") ||
         (computerSelection == "paper" && playerSelection == "scissors")
     ) {
-        alert("You win!")
+        scoreWrite.innerHTML = "<p>" + "You win" + "<p>";
         incrPlayerScore();
         console.log("PLY" + playerScore);
     } else {
